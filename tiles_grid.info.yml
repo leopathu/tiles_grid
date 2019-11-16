@@ -1,0 +1,10 @@
+name: Tiles Grid
+type: module
+description: 'Tiles grid functionality'
+package: Custom
+core: '8.x'
+dependencies:
+  - video_embed_field:video_embed_field
+  - colorbox:colorbox
+  - entityqueue:entityqueue
+  - fontawesome:fontawesome

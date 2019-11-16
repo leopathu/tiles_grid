@@ -1,0 +1,10 @@
+tiles_grid:
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    libraries/colorbox/jquery.colorbox-min.js: {}
+    js/custom.js: {}
+    https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js: { type: external, minified: true }
+  dependencies:
+    - system/drupal.system

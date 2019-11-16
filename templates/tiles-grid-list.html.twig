@@ -1,0 +1,47 @@
+<!-- Isotope filter buttons -->
+<div class="button-group filter-button-group">
+  <button data-filter="*">show all</button>
+  {%  for tag in tags %}
+    <button data-filter=".filter-{{ tag.id }}">{{ tag.name.value }}</button>
+  {% endfor %}
+</div>
+
+<!-- Isotope's content list -->
+<div class="grid">
+  {% for tile in tiles %}
+
+    <!-- Set link value based on the data available in the node. -->
+    {% if tile.field_tile_link.uri %}
+      {% set link = tile.field_tile_link.uri %}
+    {% elseif tile.field_article.target_id %}
+      {% set link = path('entity.node.canonical', {'node': tile.field_article.target_id }) %}
+    {% else %}
+      {% set link = path('entity.node.canonical', {'node': tile.nid.value }) %}
+    {% endif %}
+
+    <div class="grid-item transition {{ tile.filter_class }}">
+      <div class="tile-col-wrapper">
+        <div class="tile-wrapper">
+          <div class="tile-image-wrapper">
+            {% if tile.video %}
+              <div class="video-wrapper">
+                {{ tile.video }}
+                <div class="video-play-wrapper">
+                  <i class="fas fa-play"></i>
+                  <span>Video</span>
+                </div>
+              </div>
+            {% else %}
+              <a href="{{ link }}">{{ tile.image }}</a>
+            {% endif %}
+            <div class="tags-icons">
+              {{ tile.tags | raw }}
+            </div>
+          </div>
+          <div class="tile-title-wrapper"><a href="{{ link }}"><h2>{{ tile.title.value }}</h2></a></div>
+          <div class="tile-body-wrapper">{{ tile.desc }}</div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,6 @@
+tiles_grid.grid:
+  path: '/tiles-list'
+  defaults:
+    _controller: '\Drupal\tiles_grid\Controller\TilesGridController::list'
+  requirements:
+    _permission: 'access content'

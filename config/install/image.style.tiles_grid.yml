@@ -1,0 +1,15 @@
+uuid: 0e085f92-831b-4051-aca3-f26a26822ba4
+langcode: en
+status: true
+dependencies: {  }
+name: tiles_grid
+label: 'Tiles Grid'
+effects:
+  c2ea9dcc-7580-4c9d-a1e1-9536d8bb0411:
+    uuid: c2ea9dcc-7580-4c9d-a1e1-9536d8bb0411
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 200
+      anchor: center-center

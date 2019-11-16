@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function tiles_grid_page_attachments(array &$attachments) {
+  // Attach custom tiles_grid library to all pages of the site.
+  $attachments['#attached']['library'][] = 'tiles_grid/tiles_grid';
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function tiles_grid_theme($existing, $type, $theme, $path) {
+  // Return new theme details with variables.
+  return [
+    'tiles_grid_list' => [
+      'variables' => ['tiles' => NULL, 'tags' => NULL],
+    ],
+  ];
+}
