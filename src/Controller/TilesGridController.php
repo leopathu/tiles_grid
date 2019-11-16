@@ -40,12 +40,11 @@ class TilesGridController extends ControllerBase {
 
       $articles = $node->get('field_article')->getValue();
       $filter_class = '';
-
+      $tids = [];
       // Load article content's Tags if it is available
       if (!empty($articles)) {
         $article = Node::load($articles[0]['target_id']);
         $vals = $article->get('field_tags')->getValue();
-        $tids = [];
         foreach ($vals as $val) {
           $tids[] = $val['target_id'];
           $filter_class .= "filter-{$val['target_id']} ";
@@ -54,7 +53,6 @@ class TilesGridController extends ControllerBase {
       // Load Tiles Tags values if tags not mentioned in the article.
       if (empty($tids)) {
         $vals = $node->get('field_tile_tags')->getValue();
-        $tids = [];
         foreach ($vals as $val) {
           $tids[] = $val['target_id'];
           $filter_class .= "filter-{$val['target_id']} ";
